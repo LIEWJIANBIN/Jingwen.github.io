@@ -1,92 +1,45 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="style.css">
     <title>登录界面</title>
     <style>
-        body {
-            font-family: Roboto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('birthday-cake.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .login-container {
-            background-color: #FFB6C1;
-            width: 400px;
-            padding: 40px;
-            color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            border-radius: 22px;
-            text-align: center;
-        }
-
-        input[type="text"],
-        input[type="password"] {
-            display: block;
-            padding: 10px;
-            margin: 20px auto;
-            font-size: 15px;
-            background: none;
-            border: 2px solid grey;
-            border-radius: 22px;
-            outline: none;
-            color: white;
-            text-align: center;
-            backdrop-filter: blur(40px);
-        }
-
-        input[type="submit"] {
-            padding: 10px;
-            font-size: 10px;
-            background-color: pink;
-            border: 2px solid gray;
-            border-radius: 22px;
-            color: gray;
-            cursor: pointer;
-        }
-
-        input[type="text"]:focus,
-        input[type="password"]:focus {
-            border-color: lightgoldenrodyellow;
-            width: 280px;
-            transition: 0.5s;
-        }
-
-        input[type="submit"]:hover {
-            background-color: lightgoldenrodyellow;
-            transition: 0.5s;
+        body{
+            transition: opacity 0.5s ease-in-out;
         }
     </style>
 </head>
 <body>
+    <audio autoplay loop>
+        <source src="bitrhday-song.mp3"type="audio/mpeg">
+    </audio>
+
+
     <div class="login-container">
         <form id="login-form">
             <h1>Login 登录</h1>
-            <input type="text" id="username" placeholder="Username 用户名"/>
-            <input type="password" id="password" placeholder="Password 密码"/>
+            <input type="text"id="username"placeholder="Username 用户名"/>
+            <input type="password"id="password"placeholder="Password 密码"/>
             <input type="submit" value="Submit 提交"/>
         </form>
     </div>
     <script>
         document.getElementById("login-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
+            event.preventDefault(); // Prevent the default form submission
+
             var usernameInput = document.getElementById("username");
             var passwordInput = document.getElementById("password");
-            
+
             var username = usernameInput.value;
             var password = passwordInput.value;
-            
+
+            // Simulate a simple authentication check
             if (username === "靖雯" && password === "0821") {
+                // If authentication is successful, navigate to the next page
                 window.location.href = "second-page.html";
             } else {
+                // Display an error message
                 var errorMessage = document.createElement("p");
                 errorMessage.textContent = "用户名或密码输入错误，请再继续尝试哦！";
                 errorMessage.style.color = "red";
@@ -96,67 +49,6 @@
             }
         });
     </script>
+ 
 </body>
-</html>
-
-      body {
-    font-family: Roboto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url('birthday-cake.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-.login-container {
-    background-color: #FFB6C1;
-    width: 400px;
-    padding: 40px;
-    color:white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 22px;
-    text-align: center;
-}
-
-input[type="text"],
-input[type="password"] {
-    display: block;
-    padding: 10px;
-    margin: 20px auto;
-    font-size: 15px;
-    background: none;
-    border: 2px solid grey;
-    border-radius: 22px;
-    outline: none;
-    color:white;
-    text-align:center;
-    backdrop-filter:blur(40px)
-}
-input[type="submit"] {
-    padding: 10px;
-    font-size: 10px;
-    background-color: pink;
-    border:2px solid gray;
-    border-radius: 22px;
-    color:gray;
-    cursor: pointer;
-}
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: lightgoldenrodyellow;
-    width: 280px;
-    transition: 0.5s;
-}
-
-input[type="submit"]:hover {
-    background-color: lightgoldenrodyellow;
-    transition: 0.5s;
-}
-    </script>
-</body>
-</html>
+</html
