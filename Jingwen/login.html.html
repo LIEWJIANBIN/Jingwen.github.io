@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>登录界面</title>
+    <style>
+        body{
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="bitrhday-song.mp3"type="audio/mpeg">
+    </audio>
+
+
+    <div class="login-container">
+        <form id="login-form">
+            <h1>Login 登录</h1>
+            <input type="text"id="username"placeholder="Username 用户名"/>
+            <input type="password"id="password"placeholder="Password 密码"/>
+            <input type="submit" value="Submit 提交"/>
+        </form>
+    </div>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");
+
+            var username = usernameInput.value;
+            var password = passwordInput.value;
+
+            // Simulate a simple authentication check
+            if (username === "靖雯" && password === "0821") {
+                // If authentication is successful, navigate to the next page
+                window.location.href = "second-page.html";
+            } else {
+                // Display an error message
+                var errorMessage = document.createElement("p");
+                errorMessage.textContent = "用户名或密码输入错误，请再继续尝试哦！";
+                errorMessage.style.color = "red";
+                
+                var form = document.getElementById("login-form");
+                form.appendChild(errorMessage);
+            }
+        });
+    </script>
+ 
+</body>
+</html
