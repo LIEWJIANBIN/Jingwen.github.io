@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Cake</title>
-    <audio id="birthdayAudio"> 
-        <source src="happy-birthday-to-you-dance-20919.mp3" type="audio/mpeg">
-      </audio>
     <style>
         body {
             background-color: pink;
@@ -150,17 +147,6 @@
             cursor: pointer;
         }
 
-        .candle2{
-            background-color: #f10616;
-            width: 16px;
-            height: 50px;
-            border-radius: 8px/4px;
-            top: -20px;
-            left:50% ;
-            margin-left: -8px;
-            z-index: 10;
-        }
-
         .candle:before {
             content: "";
             position: absolute;
@@ -191,7 +177,7 @@
         }
 
         @keyframes flicker {
-            /* ... flicker 动画保持不变 ... */
+    
         }
 
         @keyframes burn {
@@ -282,54 +268,9 @@
                 transform: translateY(100vh) rotate(45deg);
             }
         }
-
-        .popup {
-      display: block;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 60px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      z-index: 4;
-    }
-
-    .popup-content {
-      flex-direction: column;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-
-    }
-
-    .continue-button {
-      display: block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #cb5a5e;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .continue-button:hover {
-      background-color: #f1483c;
-    }
     </style>
 </head>
 <body>
-    <div class="popup" id="popup">
-        <div class="popup-content">
-          欢迎来到第三页！
-          <button class="continue-button" id="continueButton">继续</button>
-        </div>
-      </div>
     <div class="cake">
         <div class="plate"></div>
         <div class="layer layer-bottom"></div>
@@ -340,11 +281,10 @@
         <div class="drip drip2"></div>
         <div class="drip drip3"></div>
         <div class="candle">
-        <div class="candle2"></div>
-        <div class="candle3"></div>
             <div class="flame"></div>
         </div>
-        
+    </div>
+
     <div class="confetti-container">
         <div class="confetti"></div>
         <div class="confetti"></div>
@@ -380,27 +320,12 @@
         <h3>许个愿望吧！</h3>
         <textarea id="wishText" placeholder="在这里输入你的愿望..."></textarea>
         <button onclick="closeDialog()">取消</button>
-        <button onclick="makeWish()">确定许愿</button>
+        <button onclick="makeWish()">确认愿望</button>
     </dialog>
 
     <script>
         const candle = document.querySelector('.candle');
         const wishDialog = document.getElementById('wishDialog');
-        const BirthdayAudio=document.getElementById('birthdayAudio');
-        const popup=document.getElementById('popup');
-
-        continueButton.addEventListener('click', () => {
-      popup.style.display = 'none';
-  });
-        
-        function playBirthdayAudio(){
-    BirthdayAudio.play();
-  }
-
-  function pauseBirthdayAudio(){
-    BirthdayAudio.pause();
-  }
-  
 
         function openDialog() {
             wishDialog.showModal();
@@ -426,10 +351,10 @@
                 confettiContainer.appendChild(confetti);
             }
         }
-        
         window.onload=function(){
             createConfetti();
         }
+        
 
    
         function makeWish() {
@@ -444,7 +369,7 @@
                 setTimeout(function () {
                   
                     window.location.href = 'next_page.html';
-                }, 4000); 
+                }, 5000); 
             }
         }
 
