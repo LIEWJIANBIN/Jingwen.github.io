@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Cake</title>
+    <audio id="birthdayaudio">
+        <source src="happy-birthday-to-you-dance-20919.mp3"type="audio/mpeg">
+    </audio>
     <style>
         body {
             background-color: pink;
@@ -268,9 +271,55 @@
                 transform: translateY(100vh) rotate(45deg);
             }
         }
+
+        .popup{
+            display: block;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: white;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+        }
+
+        .popup-content{
+            flex-direction: column;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .continue-button{
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #cb5a5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .continue-button:hover{
+            background-color:#f1483c;
+        }
+
+        
     </style>
 </head>
 <body>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            欢迎来到第三页！
+            <button class="continue-button" id="continueButton">继续</button>
+        </div>
+    </div>
     <div class="cake">
         <div class="plate"></div>
         <div class="layer layer-bottom"></div>
@@ -326,6 +375,20 @@
     <script>
         const candle = document.querySelector('.candle');
         const wishDialog = document.getElementById('wishDialog');
+        const Birthdayaudio=document.getElementById('birthdayAudio');
+        const continueButton=document.getElementById('continueButton');
+        continueButton.addEventListener('click', () => {
+            const popup=document.getElementById('popup');
+            popup.style.display = 'none';
+            playBirthdayAudio();
+  });   
+  function playBirthdayAudio(){
+    BirthdayAudio.play();
+  }
+
+  function pauseBirthdayAudio(){
+    BirthdayAudio.pause();
+  }
 
         function openDialog() {
             wishDialog.showModal();
@@ -378,4 +441,4 @@
         });
     </script>
 </body>
-</html>
+</html
