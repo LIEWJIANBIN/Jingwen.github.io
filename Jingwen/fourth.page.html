@@ -9,7 +9,7 @@
     </audio>
     <style>
         body {
-            background-color: #0c192c;
+            background-color: pink;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -293,45 +293,7 @@
             align-items: center;
             height: 100%;
         }
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-       
-           
-        }
-        .bubbles {
-            position: relative;
-            display: flex;
-            height:100%;
-        }
-        .bubbles span {
-            position: relative;
-            width: 30px;
-            height: 30px;
-            background: #4fc3dc;
-            margin: 0 4px;
-            border-radius: 50%;
-            box-shadow: 0 0 0 10px #4fc3dc44,
-                0 0 50px #4fc3dc,
-                0 0 100px #4fc3dc;
-            animation: animate-bubble 15s linear infinite;
-            animation-duration: calc(150s / var(--i));
-        }
-        .bubbles span:nth-child(even) {
-            background: #ff2d75;
-            box-shadow: 0 0 0 10px #ff2d7544,
-                0 0 50px #ff2d75,
-                0 0 100px #ff2d75;
-        }
-        @keyframes animate-bubble {
-    0% {
-        transform: translateY(100vh) scale(0);
-    }
-    100% {
-        transform: translateY(-100vh) scale(1);
-    }
-}
+
         .continue-button{
             display: block;
             margin-top: 10px;
@@ -346,23 +308,6 @@
 
         .continue-button:hover{
             background-color:#f1483c;
-        }
-        #openDialogButton {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: lemonchiffon;
-            color: grey;
-            border: 2px solid gray;
-            padding: 10px 20px;
-            border-radius: 22px;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 2;
-        }
-
-        #openDialogButton:hover {
-            background-color: yellow;
         }
 
         
@@ -388,43 +333,36 @@
             <div class="flame"></div>
         </div>
     </div>
-    <div class="container">
-        <div class="bubbles">
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:13;"></span>
-            <span style="--i:28;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:30;"></span>
-            <span style="--i:20;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:37;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:40;"></span>
-            <span style="--i:33;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:36;"></span>
-            
-        </div>
+
+    <div class="confetti-container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti" style="background-color: #FFD700;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF6347;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #32CD32;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #87CEEB;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF69B4;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FFD700;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
     </div>
 
     <dialog id="wishDialog">
@@ -433,8 +371,6 @@
         <button onclick="closeDialog()">取消</button>
         <button onclick="makeWish()">确认愿望</button>
     </dialog>
-
-    <button id="openDialogButton">打开弹窗</button>
 
     <script>
         const candle = document.querySelector('.candle');
@@ -446,10 +382,6 @@
     popup.style.display = 'none';
     playBirthdayAudio(); 
 });
-        const openDialogButton=document.getElementById('openDialogButton');
-        openDialogButton.addEventListener('click', () => {
-            openDialog();
-        });
 
   function playBirthdayAudio(){
     Birthdayaudio.play();
@@ -487,14 +419,6 @@
             createConfetti();
         }
         
-        candle.addEventListener('click', () => {
-    openDialog();
-});
-
-       
-    
-
-
 
    
         function makeWish() {
@@ -513,7 +437,9 @@
             }
         }
 
-       
+        candle.addEventListener('click', () => {
+            openDialog();
+        });
     </script>
 </body>
-</html
+</htm
