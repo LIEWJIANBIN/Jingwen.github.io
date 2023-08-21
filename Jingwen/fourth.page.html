@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Cake</title>
-    <audio id="birthdayaudio">
+    <audio id="birthdayaudio" autoplay loop>
         <source src="happy-birthday-to-you-dance-20919.mp3"type="audio/mpeg">
     </audio>
     <style>
@@ -375,20 +375,21 @@
     <script>
         const candle = document.querySelector('.candle');
         const wishDialog = document.getElementById('wishDialog');
-        const Birthdayaudio=document.getElementById('birthdayAudio');
+        const Birthdayaudio = document.getElementById('birthdayaudio'); 
         const continueButton=document.getElementById('continueButton');
         continueButton.addEventListener('click', () => {
-            const popup=document.getElementById('popup');
-            popup.style.display = 'none';
-            playBirthdayAudio();
-  });   
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+    playBirthdayAudio(); 
+});
+
   function playBirthdayAudio(){
-    BirthdayAudio.play();
+    Birthdayaudio.play();
   }
 
-  function pauseBirthdayAudio(){
-    BirthdayAudio.pause();
-  }
+  function pauseBirthdayAudio() {
+    Birthdayaudio.pause(); 
+}
 
         function openDialog() {
             wishDialog.showModal();
