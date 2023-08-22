@@ -6,9 +6,13 @@
   </title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
 <style>
   body {
-    background:linear-gradient(-200deg,#faaca8,#ddd6f3);
+    background: linear-gradient(-200deg,#faaca8,#ddd6f3);
   }
 
   .letter-image {
@@ -235,10 +239,20 @@
   const continueButton = document.getElementById('continueButton');
   const popup=document.getElementById('popup');
   const letterImage = document.querySelector('.letter-image');
+  const BirthdayAudio=document.getElementById('birthdayAudio');
+
+  function playBirthdayAudio(){
+    BirthdayAudio.play();
+  }
+
+  function pauseBirthdayAudio(){
+    BirthdayAudio.pause();
+  }
   
 
   continueButton.addEventListener('click', () => {
       popup.style.display = 'none';
+      playBirthdayAudio();
   });
 
   letterImage.addEventListener('click', () => {
@@ -254,3 +268,25 @@
 </script>
 </body>
 </html>
+<style>
+  .view-memories-button {
+    position: fixed;
+    bottom: 20px;
+    left: 500px;
+    padding: 10px 20px;
+    background:linear-gradient(#fdeb82,#f78fad);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .view-memories-button:hover {
+    background:linear-gradient(#f8c390,#d279ee);
+   
+  }
+</style>
+
+<a href="demo1.html" class="view-memories-button">查看你的回忆</a>
+
