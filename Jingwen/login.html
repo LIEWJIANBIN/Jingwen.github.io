@@ -29,7 +29,7 @@
         flex-direction: column;
         align-items: center;
         width: 350px;
-        height: 290px;
+        height: 400px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
     
@@ -158,6 +158,21 @@
         color: red;
         margin-top: 5px;
     }
+   
+    div img {
+    position: absolute;
+    top: 115px; /* 调整垂直位置 */
+    transform: translate(-50%);
+    left: 50%; /* 水平居中 */
+    width: 60px;
+    height: 60px;
+    border: 2px solid black;
+    border-radius: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+  
 </style>
 <script>
     function validateLogin() {
@@ -166,7 +181,7 @@
         
         if (username === "靖雯" && password === "040821") {
             // 登录成功，跳转到下一页
-            window.location.href = "fifth.page.html";
+            window.location.href = "second-page.html";
         } else {
             // 用户名或密码错误，显示提示信息
             var errorMessage = document.getElementById("error-message");
@@ -175,10 +190,13 @@
     }
 
 </script>
-    
+
 </head>
 
 <body>
+    <div>
+        <img src="jingwen.jpg"alt="">
+    </div>
     <div class="container">
         <div class="tit">Login 登录 </div>
         <input type="text" id="username" placeholder="Username 用户名">
@@ -208,4 +226,6 @@
     </div>
 </body>
 </html>
+
+
 
