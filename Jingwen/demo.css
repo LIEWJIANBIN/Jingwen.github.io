@@ -56,7 +56,22 @@ body
 .back-button:hover {
     background:linear-gradient(#c1e3ff,#abc7ff);
 }
+.next-button {
+    position: absolute;
+    bottom: 60px;
+    left: 800px;
+    padding: 10px 20px;
+    background: linear-gradient(#54e38f, #41c7af);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
 
+.next-button:hover {
+    background: linear-gradient(#d4fc78, #99e5a2);
+}
 
 
 .imgBx{
