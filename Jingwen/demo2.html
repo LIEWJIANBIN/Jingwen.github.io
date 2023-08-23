@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>卡片翻页</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background:linear-gradient(#d4fc78,#99e5a2);
+      perspective: 1000px;
+    }
+    
+    .s_img {
+      width: 150px;
+      height: 225px;
+      position: relative;
+      transform-style: preserve-3d;
+      margin: 0 10px;
+    }
+    
+    .imgBx {
+      width: 150px;
+      height: 225px;
+      position: relative;
+      transform-style: preserve-3d;
+      margin: 0 10px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgb(0, 0, 0);
+      backface-visibility: hidden;
+      transition: 2s;
+    }
+    
+    .a2 {
+      transform: rotateY(180deg);
+    }
+    
+    body:hover .a2 {
+      transform: rotateY(0deg);
+    }
+    
+    body:hover .a1 {
+      transform: rotateY(-180deg);
+    }
+    .back-button {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background: linear-gradient(#41d8dd, #5583ee);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: linear-gradient(#c1e3ff, #abc7ff);
+    }
+  </style>
+</head>
+<body>
+  <div class="s_img">
+    <img src="photo4.jpeg" class="a1">
+    <img src="photo5.jpeg" class="a2">
+  </div>
+  
+  <div class="imgBx">
+    <img src="photo3.jpeg" class="a1">
+    <img src="photo6.jpeg" class="a2">
+  </div>
+  
+  <div class="imgBx">
+    <img src="photo7.jpeg" class="a1">
+    <img src="photo8.jpeg" class="a2">
+  </div>
+  
+  <button class="back-button" onclick="window.location.href = 'demo1.html';">返回上一页</button>
+</body>
+</html>
