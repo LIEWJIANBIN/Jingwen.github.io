@@ -175,6 +175,10 @@
   
 </style>
 <script>
+    window.onload = function() {
+        var welcomeMessage = "欢迎回来！\n\n我已经偷偷摸摸的更新代码了，这次添加了一些新奇玩意！\n\n使用电脑运行是最好的，你才能发现一些小动画，这次更新的代码在手机和平板上可能会有一些 bug，反正我没事干就会登上来更新一下东西，毕竟也是我制作的第一个网页，我的心血也需要维护的。\n\n剩下的自行慢慢探索吧！";
+        alert(welcomeMessage);
+    };
     function validateLogin() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
