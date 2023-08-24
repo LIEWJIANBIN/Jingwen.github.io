@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Cake</title>
+    <audio id="birthdayaudio" autoplay loop>
+        <source src="happy-birthday-to-you-dance-20919.mp3"type="audio/mpeg">
+    </audio>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        center {
+            text-align: center;
+        }
+
+        .cake {
+            position: absolute;
+            width: 250px;
+            height: 200px;
+            top: -300%;
+            left: 50%;
+            margin-top: 0;
+            margin-left: -125px;
+            opacity: 0;
+            animation: fallAndAssemble 3s ease-in-out forwards;
+        }
+
+        @keyframes fallAndAssemble {
+            0% {
+                top: -300px;
+                opacity: 0;
+            }
+
+            100% {
+                top: 50%;
+                opacity: 1;
+            }
+        }
+
+        .plate {
+            width: 270px;
+            height: 110px;
+            position: absolute;
+            bottom: -10px;
+            left: -10px;
+            background-color: #ccc;
+            border-radius: 50%;
+            box-shadow: 0 2px 0 darken(#ccc, 10%), 0 4px 0 darken(#ccc, 10%),
+                0 5px 0 darken(black, 0.5);
+        }
+
+        .cake>* {
+            position: absolute;
+        }
+
+        .layer {
+            position: absolute;
+            display: block;
+            width: 250px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #b5530c;
+        }
+
+        .layer-top {
+            top: 0px;
+        }
+
+        .layer-middle {
+            top: 33px;
+        }
+
+        .layer-bottom {
+            top: 66px;
+        }
+
+        .icing {
+            top: 2px;
+            left: 5px;
+            background-color: #f0e4d0;
+            width: 240px;
+            height: 90px;
+            border-radius: 50%;
+        }
+
+        .icing::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            right: 5px;
+            bottom: 6px;
+            left: 5px;
+            background-color: lightgoldenrodyellow;
+            box-shadow: 0 0 4px( lightgoldenrodyellow, 5%),
+                0 0 4px(lightgoldenrodyellow, 5%),
+                0 0 4px(lightgoldenrodyellow, 5%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .drip {
+            display: block;
+            width: 50px;
+            height: 60px;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            background-color: #f0e4d0;
+        }
+
+        .drip1 {
+            top: 53px;
+            left: 5px;
+            transform: skewY(-15deg);
+            height: 50px;
+            width: 40px;
+            margin-left: 0px;
+        }
+
+        .drip2 {
+            top: 69px;
+            left: 181px;
+            transform: skewY(-15deg);
+        }
+
+        .drip3 {
+            top: 54px;
+            left: 90px;
+            width: 80px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+
+        .candle {
+            background-color: #f10616;
+            width: 16px;
+            height: 50px;
+            border-radius: 8px/4px;
+            top: -20px;
+            left: 50%;
+            margin-left: -8px;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .candle:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 16px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: lighten(#7b020b);
+        }
+
+        .flame {
+            position: absolute;
+            background-color: orange;
+            width: 15px;
+            height: 35px;
+            border-radius: 10px 10px 10px 10px/25px 10px;
+            top: -34px;
+            left: 50%;
+            margin-left: -7.5px;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(orange, 0.5),
+                0 0 20px rgba(orange, 0.5),
+                0 0 60px rgba(orange, 0.5),
+                0 0 80px rgba(orange, 0.5);
+            transform-origin: 50% 90%;
+            animation: flicker 1s ease-in-out alternate, burn 5s infinite;
+        }
+
+        @keyframes flicker {
+    
+        }
+
+        @keyframes burn {
+            0%,
+            100% {
+                height: 35px;
+                box-shadow: 0 0 10px rgba(orange, 0.5),
+                    0 0 20px rgba(orange, 0.5),
+                    0 0 60px rgba(orange, 0.5),
+                    0 0 80px rgba(orange, 0.5);
+            }
+
+            50% {
+                height: 30px;
+                box-shadow: 0 0 5px rgba(orange, 0.5),
+                    0 0 10px rgba(orange, 0.5),
+                    0 0 30px rgba(orange, 0.5),
+                    0 0 40px rgba(orange, 0.5);
+            }
+        }
+
+        #wishDialog {
+            width: 300px;
+            padding: 20px;
+            background-color: lemonchiffon;
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #wishDialog h3 {
+            margin-top: 0;
+        }
+
+        #wishText {
+            width: 80%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        #wishDialog button {
+            background-color: lemonchiffon;
+            color: grey;
+            border: 2px solid gray;
+            padding: 10px 20px;
+            border-radius: 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #wishDialog button:hover {
+            background-color: yellow;
+        }
+
+        #wishDialog button:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        .confetti-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #fdba3d;
+            opacity: 0.7;
+            transform: rotate(45deg);
+            pointer-events: none;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(45deg);
+            }
+        }
+
+        .popup{
+            display: block;
+            position:fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background: white;
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 4;
+        }
+
+        .popup-content{
+            flex-direction: column;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .continue-button{
+            display: block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #cb5a5e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .continue-button:hover{
+            background-color:#f1483c;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            欢迎来到第三页！
+            <button class="continue-button" id="continueButton">继续</button>
+        </div>
+    </div>
+    <div class="cake">
+        <div class="plate"></div>
+        <div class="layer layer-bottom"></div>
+        <div class="layer layer-middle"></div>
+        <div class="layer layer-top"></div>
+        <div class="icing"></div>
+        <div class="drip drip1"></div>
+        <div class="drip drip2"></div>
+        <div class="drip drip3"></div>
+        <div class="candle">
+            <div class="flame"></div>
+        </div>
+    </div>
+
+    <div class="confetti-container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti" style="background-color: #FFD700;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF6347;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #32CD32;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #87CEEB;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF69B4;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FFD700;"left:random();top:random()></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+        <div class="confetti" style="background-color: #FFD700;"></div>
+        <div class="confetti" style="background-color: #FF6347;"></div>
+        <div class="confetti" style="background-color: #32CD32;"></div>
+        <div class="confetti" style="background-color: #87CEEB;"></div>
+        <div class="confetti" style="background-color: #FF69B4;"></div>
+    </div>
+
+    <dialog id="wishDialog">
+        <h3>许个愿望吧！</h3>
+        <textarea id="wishText" placeholder="在这里输入你的愿望..."></textarea>
+        <button onclick="closeDialog()">取消</button>
+        <button onclick="makeWish()">确认愿望</button>
+    </dialog>
+
+    <script>
+        const candle = document.querySelector('.candle');
+        const wishDialog = document.getElementById('wishDialog');
+        const Birthdayaudio = document.getElementById('birthdayaudio'); 
+        const continueButton=document.getElementById('continueButton');
+        continueButton.addEventListener('click', () => {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+    playBirthdayAudio(); 
+});
+
+  function playBirthdayAudio(){
+    Birthdayaudio.play();
+  }
+
+  function pauseBirthdayAudio() {
+    Birthdayaudio.pause(); 
+}
+
+        function openDialog() {
+            wishDialog.showModal();
+        }
+
+        function closeDialog() {
+            wishDialog.close();
+        }
+    function random(){
+        return Math.random()*100+"%";
+    }
+
+        function createConfetti() {
+            const confettiContainer = document.querySelector('.confetti-container');
+            const colors = ['#FFD700', '#FF6347', '#32CD32', '#87CEEB', '#FF69B4']; 
+
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = random();
+                confetti.style.top=random();
+                confettiContainer.appendChild(confetti);
+            }
+        }
+        window.onload=function(){
+            createConfetti();
+        }
+        
+
+   
+        function makeWish() {
+            const wishText = document.getElementById('wishText').value;
+            if (wishText) {
+                alert('许愿成功！马上进入最后一页囖！');
+
+             
+                createConfetti();
+
+             
+                setTimeout(function () {
+                  
+                    window.location.href = 'next_page.html';
+                }, 5000); 
+            }
+        }
+
+        candle.addEventListener('click', () => {
+            openDialog();
+        });
+    </script>
+</body>
+</htm

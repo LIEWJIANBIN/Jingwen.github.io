@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>生日信件</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .letter-image {
+    width: 600px; /* Adjust the width to match the letter size */
+    height: 550px;
+    cursor: default;
+
+  }
+
+  .letter-image.opened{
+    transform: translateY(50px);
+  }
+
+
+  .letter {
+    position: absolute;
+    width: 600px;
+    height: 550px;
+    background: white;
+    z-index: 1;
+    overflow: hidden;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .letter .letter-border {
+    height: 10px;
+    width: 100%;
+    background: repeating-linear-gradient(
+      -45deg,
+      #cb5a5e,
+      #cb5a5e 8px,
+      transparent 8px,
+      transparent 18px
+    );
+  }
+
+  .letter .letter-header {
+    width: 100%;
+    height: 80px;
+    background: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+  .letter .letter-content {
+    width: 90%;
+    height: 80%; /* Adjust the height to match the letter size */
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    resize: none;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+  }
+
+  .next-page-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #ffe68a;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+</style>
+<title>Birthday Greeting</title>
+</head>
+<body>
+<div class="letter-image">
+  <div class="letter">
+    <div class="letter-border"></div>
+    <div class="letter-header">
+      <h2>生日信件</h2>
+    </div>
+    <div class="letter-content">
+      <p>靖雯：</p>
+      <p>哈喽，没想到我以这种方式写生日信给你吧哈哈哈，眨眼间来到你的生日咯，时间好快呀。本来礼物袋子有封信给你的但是我给拿出来了，想着以不一样特别的方式写信给你哈哈哈。第一次帮女生也是第一次帮你庆生不知道该怎样计划，有哪里做得不好的不要介意哈哈哈，希望你满意啦。
+         很可惜那天天有点黑加上多云看不到日落，要不然那风景肯定很美的。不过也没啥问题，选这个地点就是为了让你看海吹海风放松你那负面情绪和压力的，以后还有去记得叫上我叻哈哈哈。
+         礼物真的可恶，你居然买了，我瞒了两个多月想给的惊喜没了。之前回Perak前跟你说我回来给你惊喜没画饼吧哈哈哈，我也不想送其他装饰还是之类东西，对于我来说礼物适合且实用的最实际的。
+         那个彩带我绑到真的很难看，请原谅我不会绑，我尽力了哈哈哈！里面的星星是我自己折的，礼物盒里单单放“杂草”我觉得有点单调，想起我还会折星星就折来填空吧，可能你打开会有些散了，剩下好的想留着美观可以买个小玻璃瓶装着。
+         在这里也谢谢你给我的荧光棒啦，真的保存到很好，我很喜欢，谢谢你！还有人有时候开心点啦，不要每次酱Negative，有什么心事还是压力别藏着心里啦，找人发泄诉苦心情会好很多的，别自己熬了,你不是自己一个人呢。
+         你生日我就不说太多负能量的东西啦，希望你今年生日过得比往年的还愉快，一年比一年好，我也不多说了，最后以后有空多联系约出来玩玩啦。
+      </p>
+      <p>Sincerely,</p>
+      <p>健斌</p>
+    </div>
+  </div>
+
+  <button class="next-page-button">下一页</button>
+</div>
+
+<script>
+  const letterImage = document.querySelector('.letter-image');
+  const nextPageButton = document.querySelector('.next-page-button');
+  
+  nextPageButton.addEventListener('click', () => {
+    window.location.href = '蛋糕.html'; 
+  });
+  
+  letterImage.addEventListener('click', () => {
+    letterImage.classList.add('opened');
+    nextPageButton.style.display = 'block';
+  });
+</script>
+</body>
+</html>
