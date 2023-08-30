@@ -60,12 +60,12 @@
 	line-height: 50px;
 	font-size: 14px;
 	color: #FFF;
-    margin-top: 246px;
+    margin-top: 421px;
 }
 #div {
     font-size: 18px;
     color: #333;
-    margin-top: -700px;
+    margin-top: -680px;
     text-align: center;
     margin-left: 800px;
 }
@@ -78,19 +78,20 @@ ul,
         }
  
         #main {
-            width: 600px;
-            height: 350px;
-            margin-left: 350px;
+            width: 350px;
+            height: 175px;
+            margin-left: 460px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-top: -600px;
             position: relative;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
         }
  
         #display {
-            width: 600px;
-            height: 350px;
+            width: 350px;
+            height: 175px;
             overflow: hidden;
             position: relative;
 
@@ -107,8 +108,8 @@ ul,
  
         #list li {
             float: left;
-            width: 600px;
-            height: 350px;
+            width: 350px;
+            height: 175px;
         }
  
         #arrow {
@@ -146,16 +147,16 @@ ul,
         #index_container {
             position: absolute;
             width: 210px;
-            height: 30px;
-            right: 20px;
+            height: 10px;
+            right: -40px;
             bottom: 20px;
         }
  
         #index_container .index {
             float: left;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
             text-align: center;
             opacity: 0.8;
             background: #fff;
