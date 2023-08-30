@@ -168,28 +168,6 @@
     z-index: 3;
     transition: 0.4s;
   }
-  .popup {
-      display: block;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 60px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      z-index: 4;
-    }
-
-    .popup-content {
-      flex-direction: column;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-
-    }
 
     .continue-button {
       display: block;
@@ -206,15 +184,8 @@
     .continue-button:hover {
       background-color: #f1483c;
     }
-
-
+  
 </style>
-<div class="popup" id="popup">
-  <div class="popup-content">
-    恭喜你登录成功！
-    <button class="continue-button" id="continueButton">继续</button>
-  </div>
-</div>
 <div class="letter-image">
   <div class="title-container">
     请点击以下信封
@@ -233,27 +204,10 @@
   </div>
   <div class="shadow"></div>
 
-
+   
 <script>
   const titleContainer = document.querySelector('.title-container');;
-  const continueButton = document.getElementById('continueButton');
-  const popup=document.getElementById('popup');
   const letterImage = document.querySelector('.letter-image');
-  const BirthdayAudio=document.getElementById('birthdayAudio');
-
-  function playBirthdayAudio(){
-    BirthdayAudio.play();
-  }
-
-  function pauseBirthdayAudio(){
-    BirthdayAudio.pause();
-  }
-  
-
-  continueButton.addEventListener('click', () => {
-      popup.style.display = 'none';
-      playBirthdayAudio();
-  });
 
   letterImage.addEventListener('click', () => {
       window.location.href = '信件.html';
