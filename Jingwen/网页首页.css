@@ -65,9 +65,9 @@
 #div {
     font-size: 18px;
     color: #333;
-    margin-top: -684px;
+    margin-top: -700px;
     text-align: center;
-    margin-left: 990px;
+    margin-left: 800px;
 }
 
 ul,
@@ -168,3 +168,11 @@ ul,
         #index_container .current {
             background: #ec3d3d;
         }
+        /* 示例媒体查询，调整样式以适应不同的屏幕宽度 */
+@media screen and (max-width: 768px) {
+    /* 在小于768px的屏幕上应用的样式 */
+}
+
+@media screen and (max-width: 480px) {
+    /* 在小于480px的屏幕上应用的样式 */
+}
