@@ -169,11 +169,66 @@ ul,
         #index_container .current {
             background: #ec3d3d;
         }
-        /* 示例媒体查询，调整样式以适应不同的屏幕宽度 */
-@media screen and (max-width: 768px) {
-    /* 在小于768px的屏幕上应用的样式 */
-}
 
-@media screen and (max-width: 480px) {
-    /* 在小于480px的屏幕上应用的样式 */
-}
+@media (max-width: 768px) {
+            .header {
+                width: 100%;
+                padding: 10px;
+            }
+        
+            .nav {
+                display: none;
+            }
+        
+            .logo h1 {
+                font-size: 24px;
+            }
+        
+            .banner img {
+                width: 100%;
+                height: auto;
+            }
+        
+            .profile {
+                display: none;
+            }
+        
+            #main {
+                width: 100%;
+                margin: 20px auto;
+            }
+        
+            #display {
+                width: 100%;
+                height: auto;
+            }
+        
+            #list li {
+                width: 100%;
+                height: auto;
+            }
+        
+            #arrow {
+                display: block;
+                margin: 10px auto;
+            }
+        
+            #arrow span {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 24px;
+            }
+        
+            #index_container {
+                display: none;
+            }
+        
+            .foot {
+                margin-top: 20px;
+            }
+        
+            #div {
+                display: none;
+            }
+        }     
