@@ -1,9 +1,26 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
+/* 在 CSS 中将整个网页固定 */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
 
-.header {
+/* 创建一个包裹整个网页内容的容器 */
+#page-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.header{
     position: fixed;
     top: 0;
     left: 0;
@@ -12,155 +29,224 @@
     justify-content: space-between;
     width: 80%;
     padding: 10px 10%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255, 255, 255,0.3);
+    
 }
-
-.logo h1 {
+.logo h1{
     color: rgb(255, 100, 123);
-    font-size: 28px;
 }
-
-.nav {
-    display: flex;
-    align-items: center;
-}
-
-.nav a {
+.nav a{
     text-decoration: none;
     color: #fff;
-    margin-left: 20px;
-    padding: 5px 10px;
+    margin-left: 50px;
+    padding: 10px 20px;
     border-radius: 10px;
-    background-color: rgb(255, 100, 123);
+    
 }
-
-.banner {
+.nav a:hover{
+    background-color:lightpink ;
+    
+}
+.banner{
     width: 100%;
-    height: auto;
-    position: relative;
 }
-
-.banner img {
+.banner img{
     width: 100%;
-    height: auto;
+    height: 100%;
 }
-
-.profile {
-    display: none;
+.profile{
+    width: 260px;
+    margin: 0 auto 20px;
+    position: absolute;
+    top: 3px;
+    left: 50px;
 }
+.profile img{
+    display: block;
+    width: 40px;
+    height: 50px;
+    position: fixed;
+    box-sizing: content-box;
+    border-radius: 50%;
+    border: 3px solid palevioletred;
 
-#main {
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-    margin-top: 20px;
 }
-
-#display {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    position: relative;
+.foot{
+	width: 100%;
+	background-color: palevioletred;
+	text-align: center;
+	line-height: 50px;
+	font-size: 14px;
+	color: #FFF;
+    margin-top: 421px;
 }
-
-#display ul {
-    position: relative;
-    left: 0;
-    top: 0px;
-    width: 500%;
-    height: auto;
-    transition: left 500ms linear;
-}
-
-#list li {
-    float: left;
-    width: 100%;
-    height: auto;
-}
-
-#index_container {
-    display: none;
-}
-
-.foot {
-    width: 100%;
-    background-color: rgb(255, 100, 123);
-    text-align: center;
-    line-height: 50px;
-    font-size: 14px;
-    color: #fff;
-    margin-top: 20px;
-}
-
 #div {
     font-size: 18px;
     color: #333;
-    margin-top: -50px;
+    margin-top: -680px;
     text-align: center;
-    margin-left: 0;
+    margin-left: 800px;
 }
 
-#arrow {
-    display: block;
-    margin: 10px auto;
-}
+ul,
+        ol {
+            list-style: none;
+            padding: 0px;
+            margin: 0px;
+        }
+ 
+        #main {
+            width: 350px;
+            height: 175px;
+            margin-left: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -600px;
+            position: relative;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+        }
+ 
+        #display {
+            width: 350px;
+            height: 175px;
+            overflow: hidden;
+            position: relative;
 
-#arrow span {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    background: rgba(0, 0, 0, 0.6);
-    cursor: pointer;
-    text-align: center;
-    font-weight: bold;
-    font-family: 黑体, SimHei;
-    font-size: 24px;
-    color: #fff;
-    opacity: 0.8;
-    border: none;
-    border-radius: 50%;
-}
+        }
+ 
+        #display ul {
+            position: relative;
+            left: 0;
+            top: 0px;
+            width: 3600px;
+            height: 350px;
+            transition: left 500ms linear;
+        }
+ 
+        #list li {
+            float: left;
+            width: 350px;
+            height: 175px;
+        }
+ 
+        #arrow {
+            display: none;
+        }
+ 
+        #arrow span {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            text-align: center;
+            font-weight: bold;
+            font-family: 黑体, SimHei;
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.4;
+            border: 1px solid #fff;
+        }
+ 
+        #arrow span:hover {
+            opacity: 0.7;
+        }
+ 
+        #arrow #right {
+            right: 5px;
+            left: auto;
+        }
+ 
+        #index_container {
+            position: absolute;
+            width: 210px;
+            height: 10px;
+            right: -40px;
+            bottom: 20px;
+        }
+ 
+        #index_container .index {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            opacity: 0.8;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 10px;
 
-#arrow #right {
-    right: 10px;
-    left: auto;
-}
+        }
+ 
+        #index_container .current {
+            background: #ec3d3d;
+        }
+        #back-to-top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: none;
+            /* 其他样式属性，如背景色、颜色等 */
+        }
 
-.index {
-    display: none;
-}
+        @media all and (max-width:1024px){
 
-@media (max-width: 768px) {
-    .nav {
-        display: none;
-    }
+        }
 
-    .logo h1 {
-        font-size: 24px;
-    }
+        @media all and (max-width:768px){
 
-    .nav a {
-        margin-left: 0;
-        padding: 8px 12px;
-    }
+        }
 
-    .profile img {
-        display: none;
-    }
-
-    #main {
-        margin: 10px auto;
-    }
-
-    #arrow span {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        font-size: 20px;
-    }
-}
+        @media all and (max-width:500px){
+            .header{
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                width: 92%;
+                padding: 4px 4%;
+                background: rgb(255, 255, 255,0.3);
+                }
+                .nav a{
+                    text-decoration: none;
+                    color: gray;
+                    margin-left: 0%;
+                    padding: 4px 8px;
+                  
+                 }
+                 .banner{
+                    width: 100%;
+                }
+                .banner img{
+                    width: 100%;
+                    height: 520px;
+                }
+                .profile{
+                    width: 100px;
+                    margin: 0 auto 20px;
+                    position: absolute;
+                    top: 3px;
+                    left: 50px;
+                }
+                .profile img{
+                    display: block;
+                    width: 40px;
+                    height: 35px;
+                    position: fixed;
+                    box-sizing: content-box;
+                    border-radius: 50%;
+                    border: 3px solid palevioletred;
+                
+                }
+        }
