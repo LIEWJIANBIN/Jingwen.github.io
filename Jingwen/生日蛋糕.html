@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>生日蛋糕</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #eac285;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 400px;
+            height: 400px;
+            background-color: #ffffff;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 8px;
+            box-shadow: 0 20px 45px rgba(120,76,10,0.25);
+            cursor: pointer;
+        }
+
+        .cake {
+            width: 100%;
+            position: absolute;
+            bottom: 60px;
+        }
+
+        .bottom-layer,
+        .top-layer,
+        .middle-layer {
+            height: 80px;
+            width: 240px;
+            position: relative;
+            margin: auto;
+            background-repeat: repeat;
+            background-size: 100% 100%, 60px 100px;
+            background-image: linear-gradient(
+                transparent 50px,
+                #e3a953 50px,
+                #e3a953 60px,
+                transparent 60px
+            ),
+            radial-gradient(
+                circle at 30px 5px, #713e16 30px, #eac284 31px
+            );
+        }
+
+        .middle-layer {
+            transform: scale(0.85);
+            top: 72px;
+            animation: rise-1 2s forwards;
+        }
+
+        @keyframes rise-1 {
+            100% {
+                top: 7px;
+            }
+        }
+
+        .top-layer {
+            transform: scale(0.7);
+            top: 144px;
+            animation: rise-2 2s 2s forwards;
+        }
+
+        @keyframes rise-2 {
+            100% {
+                top: 26px;
+            }
+        }
+
+        .candle {
+            background: repeating-linear-gradient(
+                45deg,
+                #fd3018 0,
+                #fd3018 5px,
+                #ffa89e 5px,
+                #ffa89e 10px
+            );
+            height: 45px;
+            width: 15px;
+            position: absolute;
+            margin: auto;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            animation: rise-3 1s 4s forwards;
+        }
+
+        @keyframes rise-3 {
+            100% {
+                bottom: 202px;
+            }
+        }
+
+        .candle::after {
+            content: "";
+            position: absolute;
+            height: 16px;
+            width: 16px;
+            background-color: #ffee54;
+            border-radius: 0 50% 50% 50%;
+            transform: scale(0) rotate(45deg);
+            bottom: 50px;
+            left: -0.5px;
+            animation: flame 1.5s 5s forwards;
+        }
+
+        @keyframes flame {
+            100% {
+                transform: scale(1) rotate(45deg);
+            }
+        }
+
+        /* Wish Dialog Styles */
+        #wishDialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: lemonchiffon;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+        }
+
+        #wishDialog h3 {
+            margin-bottom: 10px;
+        }
+
+        #wishText {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+
+        #wishDialog button {
+            background-color: lightpink;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #wishDialog button:hover {
+            background-color: pink;
+        }
+
+        /* Welcome Dialog Styles */
+        #welcomeDialog {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-align: center;
+            display: none;
+        }
+
+        #welcomeDialog h2 {
+            margin-bottom: 20px;
+        }
+
+        #welcomeDialog button {
+            background-color: lightblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #welcomeDialog button:hover {
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="openWishDialog()">
+        <div class="cake">
+            <div class="candle"></div>
+            <div class="top-layer"></div>
+            <div class="middle-layer"></div>
+            <div class="bottom-layer"></div>
+        </div>
+    </div>
+
+    <!-- Welcome Dialog -->
+    <div id="welcomeDialog">
+        <h2>欢迎来到第三页！</h2>
+        <button onclick="startSong()">继续</button>
+    </div>
+
+    <!-- Wish Dialog -->
+    <div id="wishDialog">
+        <h3>许个愿望吧！</h3>
+        <textarea id="wishText" placeholder="在这里输入你的愿望..."></textarea>
+        <br/>
+        <button onclick="submitWish()">确认愿望</button>
+        <button onclick="closeWishDialog()">取消</button>
+    </div>
+
+    <!-- Audio element for birthday song -->
+    <audio id="birthdaySong" src="happy-birthday-to-you-dance-20919.mp3"></audio>
+
+    <script>
+        // Function to open the wish dialog
+        function openWishDialog() {
+            document.getElementById('wishDialog').style.display = 'block';
+        }
+
+        // Function to close the wish dialog
+        function closeWishDialog() {
+            document.getElementById('wishDialog').style.display = 'none';
+        }
+
+        // Function to handle wish submission
+        function submitWish() {
+            alert('许愿成功！');
+            window.location.href = '烟花.html';  // Redirect to the fireworks page
+        }
+
+        // Function to show welcome dialog on page load
+        window.onload = function() {
+            document.getElementById('welcomeDialog').style.display = 'block';
+        };
+
+        // Function to start playing the birthday song and hide the welcome dialog
+        function startSong() {
+            document.getElementById('welcomeDialog').style.display = 'none';
+            document.getElementById('birthdaySong').play();
+        }
+    </script>
+</body>
+</html>
