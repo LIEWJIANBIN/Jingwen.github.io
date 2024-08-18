@@ -162,17 +162,13 @@
     </style>
     <!-- JavaScript代码保持不变 -->
     <script>
-    window.onload = function() {
-        var welcomeMessage = "欢迎回来！\n\n我已经偷偷摸摸的更新代码了，这次添加了一些新奇玩意！\n\n使用电脑运行是最好的，你才能发现一些小动画，这次更新的代码在手机和平板上可能会有一些 bug，反正我没事干就会登上来更新一下东西，毕竟也是我制作的第一个网页，我的心血也需要维护的。\n\n剩下的自行慢慢探索吧！";
-        alert(welcomeMessage);
-    };
     function validateLogin() {
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
         
         if (username === "靖雯" && password === "040821") {
             // 登录成功，跳转到下一页
-            window.location.href = "网页首页.html";
+            window.location.href = "生日贺卡.html";
         } else {
             // 用户名或密码错误，显示提示信息
             var errorMessage = document.getElementById("error-message");
